@@ -11,25 +11,22 @@ export class AppComponent {
   @ViewChild('drawer') drawer: any;
 
   public navItems = [
-    { item: 'schedule', name: 'Schedule', klass: '' },
+    { item: '/schedule', name: 'Schedule', klass: '' },
+    { item: '/my-schedule', name: 'My Schedule', klass: '' },
   ];
 
   constructor(private router: Router,
               private location: Location,) {}
 
-  ngOnInit() {
-    console.log('app ngOnInit');
-  }
-
   @HostListener('window:popstate', ['$event'])
   onPopState(event: any) {
-    console.log('Location URL: ', this.location.path());
+    this.selectPage(this.location.path());
   }
 
   goTo(page: string) {
     this.drawer.toggle();
     this.selectPage(page);
-    this.router.navigate(['/', `${page}`]);
+    this.router.navigate([`${page}`]);
   }
 
   private selectPage(page: string) {
