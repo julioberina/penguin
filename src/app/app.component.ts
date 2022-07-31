@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +14,17 @@ export class AppComponent {
     { item: 'schedule', name: 'Schedule', klass: '' },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private location: Location,) {}
+
+  ngOnInit() {
+    console.log('app ngOnInit');
+  }
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event: any) {
+    console.log('Location URL: ', this.location.path());
+  }
 
   goTo(page: string) {
     this.drawer.toggle();
@@ -22,6 +33,6 @@ export class AppComponent {
   }
 
   private selectPage(page: string) {
-    this.navItems.map(navItem => navItem.klass = (navItem.item === page ? 'selected' : ''));
+    this.navItems.map(nav => nav.klass = (nav.item === page ? 'selected' : ''));
   }
 }

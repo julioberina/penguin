@@ -1,7 +1,13 @@
 mat-toolbar {
-  background-color: black;
+  // background-color: black;
 
-  mat-icon { color: white; }
+  // mat-icon { color: white; }
+
+  span { 
+    text-align: center; 
+    width: 85%;
+    height: 56px;
+  }
 }
 
 mat-drawer-container {
@@ -14,12 +20,10 @@ mat-drawer-container {
 }
 
 mat-list {
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: black;
+  font-weight:400;
 
   .selected {
-    background-color: black;
-    color: white;
+    background-color: rgba(63, 81, 181, 0.2);
+    color: #3f51b5;
   }
 }
