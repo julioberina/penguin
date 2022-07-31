@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <button mat-icon-button (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
@@ -6,12 +6,16 @@
 
 <mat-drawer-container autosize>
   <mat-drawer #drawer mode="over">
-    <p>Auto-resizing sidenav</p>
+    <mat-list>
+      <ng-container *ngFor="let navItem of navItems">
+        <mat-list-item [ngClass]="navItem.klass" (click)="goTo(navItem.item)">
+          {{ navItem.name }}
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
   </mat-drawer>
 
   <mat-drawer-content>
-    <!--<button type="button" mat-button (click)="drawer.toggle()">Toggle sidenav</button>-->
+    <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
-
-<router-outlet></router-outlet>

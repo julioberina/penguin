@@ -1,4 +1,25 @@
+mat-toolbar {
+  background-color: black;
+
+  mat-icon { color: white; }
+}
+
 mat-drawer-container {
   width: 100%;
   height: calc(100% - 64px);
+
+  mat-drawer {
+    width: min(55%, 300px);
+  }
+}
+
+mat-list {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+
+  .selected {
+    background-color: black;
+    color: white;
+  }
 }
