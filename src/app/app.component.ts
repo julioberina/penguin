@@ -13,6 +13,11 @@ export class AppComponent {
   public navItems = [
     { item: '/schedule', name: 'Schedule', klass: '' },
     { item: '/my-schedule', name: 'My Schedule', klass: '' },
+    { item: '/contacts', name: 'Contacts', klass: '' },
+    { item: '/exhibitors', name: 'Exhibitors', klass: '' },
+    { item: '/speakers', name: 'Speakers', klass: '' },
+    { item: '/special-events', name: 'Special Events', klass: '' },
+    { item: '/qr-code', name: 'Scan QR Code', klass: '' }
   ];
 
   constructor(private router: Router,
