@@ -11,13 +11,13 @@ export class AppComponent {
   @ViewChild('drawer') drawer: any;
 
   public navItems = [
-    { item: '/schedule', name: 'Schedule', klass: '' },
-    { item: '/my-schedule', name: 'My Schedule', klass: '' },
-    { item: '/contacts', name: 'Contacts', klass: '' },
-    { item: '/exhibitors', name: 'Exhibitors', klass: '' },
-    { item: '/speakers', name: 'Speakers', klass: '' },
-    { item: '/special-events', name: 'Special Events', klass: '' },
-    { item: '/qr-code', name: 'Scan QR Code', klass: '' }
+    { item: '/schedule', name: 'Schedule', klass: '', icon: 'schedule' },
+    { item: '/my-schedule', name: 'My Schedule', klass: '', icon: 'list' },
+    { item: '/contacts', name: 'Contacts', klass: '', icon: 'contacts' },
+    { item: '/exhibitors', name: 'Exhibitors', klass: '', icon: 'present_to_all' },
+    { item: '/speakers', name: 'Speakers', klass: '', icon: 'speaker' },
+    { item: '/special-events', name: 'Special Events', klass: '', icon: 'event' },
+    { item: '/qr-code', name: 'Scan QR Code', klass: '', icon: 'select_all' }
   ];
 
   constructor(private router: Router,

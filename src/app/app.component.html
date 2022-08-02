@@ -12,7 +12,7 @@
     <mat-list>
       <ng-container *ngFor="let navItem of navItems">
         <mat-list-item [ngClass]="navItem.klass" (click)="goTo(navItem.item)">
-          {{ navItem.name }}
+          <mat-icon>{{ navItem.icon }}</mat-icon> {{ navItem.name }}
         </mat-list-item>
       </ng-container>
     </mat-list>
