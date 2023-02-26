@@ -1,0 +1,36 @@
+mat-toolbar {
+    background-color: black;
+    color: white;
+    padding: 0;
+
+    img {
+        width: 56px;
+        height: 56px;
+        margin-left: calc(100% / 2 - 76px);
+    }
+}
+
+mat-drawer-container {
+    height: calc(100% - 56px);
+
+    mat-drawer {
+        p { 
+            padding-left: 20px;
+            padding-top: 10px;
+        }
+    }
+
+    mat-list {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            padding: 10px 20px;
+        }
+
+        a.active {
+            background-color: black;
+            color: white;
+        }
+    }
+}

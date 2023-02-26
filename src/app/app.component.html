@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<mat-toolbar>
+    <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <img (click)="goHome()" src="./../assets/img/penguin-logo.png" />
+</mat-toolbar>
+
+<mat-drawer-container>
+    <mat-drawer #drawer>
+        <p><strong>Penguin</strong></p>
+
+        <mat-list>
+            <a *ngFor="let link of links" 
+                [ngClass]="currentPath === link.path ? 'active' : ''" 
+                (click)="setPath(link.path)">
+                {{ link.name }}
+            </a>
+        </mat-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
