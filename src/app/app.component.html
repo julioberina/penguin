@@ -3,12 +3,12 @@
         <mat-icon>menu</mat-icon>
     </button>
 
-    <img (click)="goHome()" src="./../assets/img/penguin-logo.png" />
+    <img src="./../assets/img/penguin-logo.png" />
 </mat-toolbar>
 
 <mat-drawer-container>
     <mat-drawer #drawer>
-        <p><strong>Penguin</strong></p>
+        <p><img (click)="goHome()" src="./../assets/img/scale-logo.svg" /></p>
 
         <mat-list>
             <a *ngFor="let link of links" 

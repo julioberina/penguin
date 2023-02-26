@@ -35,7 +35,6 @@ export class AppComponent {
   public goHome() {
     this.currentPath = ''
     this.router.navigate(['/']);
-    
-    if (this.drawer.opened) { this.drawer.toggle(); }
+    this.drawer.toggle();
   }
 }
