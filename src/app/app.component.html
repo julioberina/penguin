@@ -12,7 +12,7 @@
 
         <mat-list>
             <a *ngFor="let link of links" 
-                [ngClass]="currentPath === link.path ? 'active' : ''" 
+                [ngClass]="getNgClass(link.path)" 
                 (click)="setPath(link.path)">
                 {{ link.name }}
             </a>

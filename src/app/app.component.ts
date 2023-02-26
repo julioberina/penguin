@@ -28,13 +28,15 @@ export class AppComponent {
 
   public setPath(path: string) {
     this.currentPath = path;
-    this.router.navigate([path]);
+    this.router.navigate([path || '/']);
     this.drawer.toggle();
   }
 
   public goHome() {
-    this.currentPath = ''
-    this.router.navigate(['/']);
-    this.drawer.toggle();
+    this.setPath('');
+  }
+
+  public getNgClass(path: string) {
+    return this.currentPath === path ? 'active' : '';
   }
 }
