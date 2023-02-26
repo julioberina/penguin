@@ -10,13 +10,13 @@
     <mat-drawer #drawer>
         <p><img (click)="goHome()" src="./../assets/img/scale-logo.svg" /></p>
 
-        <mat-list>
+        <div class="nav-list">
             <a *ngFor="let link of links" 
                 [ngClass]="getNgClass(link.path)" 
                 (click)="setPath(link.path)">
                 {{ link.name }}
             </a>
-        </mat-list>
+        </div>
     </mat-drawer>
 
     <mat-drawer-content>
