@@ -8,8 +8,24 @@
     </div>
 
     <div class="schedule">
-        <p *ngFor="let event of eventsData | async">
-            {{ event.when.day + ' ' + event.abstract }}
-        </p>
+        <div *ngFor="let event of eventsData | async" class="schedule-item">
+            <div class="schedule-time">
+                <span>{{ event.when.startTime | date:'shortTime' }}</span>
+                <span>-</span>
+                <span>{{ event.when.endTime | date:'shortTime' }}</span>
+            </div>
+
+            <div class="schedule-title">
+                <strong>{{ event.title }}</strong>
+            </div>
+
+            <div class="schedule-room">
+                {{ event.location }}
+            </div>
+
+            <div class="schedule-add">
+                <mat-icon>add</mat-icon>
+            </div>
+        </div>
     </div>
 </div>
