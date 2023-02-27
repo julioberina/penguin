@@ -1,1 +1,15 @@
-<p>schedule works!</p>
+<div class="schedule-container">
+    <div class="button-group">
+        <div *ngFor="let day of getEventDays()" 
+            (click)="setDay(day)"
+            [ngClass]="getNgClass(day)">
+            {{ day }}
+        </div>
+    </div>
+
+    <div class="schedule">
+        <p *ngFor="let event of eventsData | async">
+            {{ event.when.day + ' ' + event.abstract }}
+        </p>
+    </div>
+</div>
