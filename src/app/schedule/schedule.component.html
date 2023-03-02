@@ -24,7 +24,8 @@
             </div>
 
             <div class="schedule-add">
-                <mat-icon>add</mat-icon>
+                <mat-icon *ngIf="!isInMySchedule(event.url)" (click)="addToMySchedule(event.url)">add</mat-icon>
+                <mat-icon class="check" *ngIf="isInMySchedule(event.url)">check</mat-icon>
             </div>
         </div>
     </div>

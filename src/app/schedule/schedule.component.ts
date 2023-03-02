@@ -21,7 +21,11 @@ export class ScheduleComponent {
     'Sunday': of(eventsSunday.events)
   };
 
-  constructor() {}
+  public myScheduleItems: any;
+
+  constructor() {
+    this.getMyScheduleItems();
+  }
 
   public setDay(day: string) {
     this.eventsData = this.eventsMap[day];
@@ -34,5 +38,24 @@ export class ScheduleComponent {
 
   public getNgClass(day: string) {
     return this.eventDay === day ? 'button-day active' : 'button-day';
+  }
+
+  public isInMySchedule(path: string) {
+    return this.myScheduleItems.has(path);
+  }
+
+  public addToMySchedule(path: string) {
+    this.myScheduleItems.add(path);
+    this.saveMyScheduleItems();
+    console.log('Event saved successfully!');
+  }
+
+  private getMyScheduleItems() {
+    this.myScheduleItems = new Set(JSON.parse(localStorage.getItem('myScheduleItems') || '[]'));
+    console.log('myScheduleItems: ', this.myScheduleItems);
+  }
+
+  private saveMyScheduleItems() {
+    localStorage.setItem('myScheduleItems', JSON.stringify([...this.myScheduleItems]));
   }
 }
