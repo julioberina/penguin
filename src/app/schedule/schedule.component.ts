@@ -5,6 +5,9 @@ import { default as eventsFriday } from '../../assets/data/scale-20x-events-frid
 import { default as eventsSaturday } from '../../assets/data/scale-20x-events-saturday.json';
 import { default as eventsSunday } from '../../assets/data/scale-20x-events-sunday.json';
 import { Observable, of } from 'rxjs';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddToMyScheduleDialogComponent } from '../add-to-my-schedule-dialog/add-to-my-schedule-dialog.component';
 
 @Component({
   selector: 'app-schedule',
@@ -23,7 +26,8 @@ export class ScheduleComponent {
 
   public myScheduleItems: any;
 
-  constructor() {
+  constructor(private dialog: MatDialog,
+              private snackBar: MatSnackBar) {
     this.getMyScheduleItems();
   }
 
@@ -44,15 +48,24 @@ export class ScheduleComponent {
     return this.myScheduleItems.has(path);
   }
 
-  public addToMySchedule(path: string) {
-    this.myScheduleItems.add(path);
-    this.saveMyScheduleItems();
-    console.log('Event saved successfully!');
+  public addToMySchedule(path: string, title: string) {
+    const dialogRef = this.dialog.open(AddToMyScheduleDialogComponent, {
+      data: { title },
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.myScheduleItems.add(path);
+        this.saveMyScheduleItems();
+        this.snackBar.open('Event saved successfully!', 'OK', {
+          duration: 3000
+        });
+      }
+    });
   }
 
   private getMyScheduleItems() {
     this.myScheduleItems = new Set(JSON.parse(localStorage.getItem('myScheduleItems') || '[]'));
-    console.log('myScheduleItems: ', this.myScheduleItems);
   }
 
   private saveMyScheduleItems() {

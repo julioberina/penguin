@@ -11,10 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { MyScheduleComponent } from './my-schedule/my-schedule.component';
 import { QrCodeComponent } from './qr-code/qr-code.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AddToMyScheduleDialogComponent } from './add-to-my-schedule-dialog/add-to-my-schedule-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     ScheduleComponent,
     MyScheduleComponent,
     QrCodeComponent,
-    ContactsComponent
+    ContactsComponent,
+    AddToMyScheduleDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     MatButtonModule,
     MatListModule,
     MatChipsModule,
+    MatDialogModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
