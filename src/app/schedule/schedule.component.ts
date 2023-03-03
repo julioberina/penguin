@@ -57,7 +57,7 @@ export class ScheduleComponent {
       if (res) {
         this.myScheduleItems.add(path);
         this.saveMyScheduleItems();
-        this.snackBar.open('Event saved successfully!', 'OK', {
+        this.snackBar.open('Event added successfully!', 'OK', {
           duration: 3000
         });
       }

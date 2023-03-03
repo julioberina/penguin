@@ -1,1 +1,32 @@
-<p>my-schedule works!</p>
+<div class="schedule-container">
+    <div class="button-group">
+        <div *ngFor="let day of getEventDays()" 
+            (click)="setDay(day)"
+            [ngClass]="getNgClass(day)">
+            {{ day }}
+        </div>
+    </div>
+
+    <div class="schedule">
+        <div *ngFor="let event of eventsData | async" class="schedule-item">
+            <div class="schedule-time">
+                <span>{{ event.when.startTime | date:'shortTime' }}</span>
+                <span>-</span>
+                <span>{{ event.when.endTime | date:'shortTime' }}</span>
+            </div>
+
+            <div class="schedule-title">
+                <strong>{{ event.title }}</strong>
+            </div>
+
+            <div class="schedule-room">
+                {{ event.location }}
+            </div>
+
+            <div class="schedule-remove">
+                <mat-icon class="remove" color="warn"
+                        (click)="removeFromMySchedule(event.url, event.title)">remove</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
