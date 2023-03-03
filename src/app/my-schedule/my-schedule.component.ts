@@ -8,6 +8,7 @@ import { Observable, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ScheduleDialogComponent } from '../schedule-dialog/schedule-dialog.component';
+import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 
 @Component({
   selector: 'app-my-schedule',
@@ -57,6 +58,12 @@ export class MyScheduleComponent {
           duration: 3000
         });
       }
+    });
+  }
+
+  public viewEventInfo(event: any) {
+    this.dialog.open(InfoDialogComponent, {
+      data: { ...event },
     });
   }
 

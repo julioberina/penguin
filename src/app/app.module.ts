@@ -18,6 +18,7 @@ import { MyScheduleComponent } from './my-schedule/my-schedule.component';
 import { QrCodeComponent } from './qr-code/qr-code.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ScheduleDialogComponent } from './schedule-dialog/schedule-dialog.component';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ScheduleDialogComponent } from './schedule-dialog/schedule-dialog.compo
     MyScheduleComponent,
     QrCodeComponent,
     ContactsComponent,
-    ScheduleDialogComponent
+    ScheduleDialogComponent,
+    InfoDialogComponent
   ],
   imports: [
     BrowserModule,

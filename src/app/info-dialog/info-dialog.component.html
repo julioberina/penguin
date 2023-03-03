@@ -1,0 +1,12 @@
+<div mat-dialog-content>
+    <h2>{{ data.title }}</h2>
+    <p>Topic: <strong>{{ data.topic }}</strong></p>
+    <p>Room: <strong>{{ data.location }}</strong></p>
+    <p>Speaker(s): <strong>{{ stringifySpeakers(data.speakers) }}</strong></p>
+    <p>Start: <strong>{{ data.when.startTime | date:'shortTime' }}</strong></p>
+    <p>End: <strong>{{ data.when.endTime | date:'shortTime' }}</strong></p>
+    <p>{{ data.abstract }}</p>
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button (click)="close()">Close</button>
+</div>
