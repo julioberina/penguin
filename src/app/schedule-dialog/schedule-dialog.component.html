@@ -1,5 +1,5 @@
 <div mat-dialog-content>
-    <p>Are you sure you'd like to add <strong>{{ data.title }}</strong> to My Schedule?</p>
+    <p>Are you sure you'd like to {{ data.action }} <strong>{{ data.title }}</strong> {{ data.dest }} your schedule?</p>
 </div>
 <div mat-dialog-actions [align]="'end'">
     <button mat-raised-button (click)="onNoClick()">No</button>

@@ -5,9 +5,9 @@ import { default as eventsFriday } from '../../assets/data/scale-20x-events-frid
 import { default as eventsSaturday } from '../../assets/data/scale-20x-events-saturday.json';
 import { default as eventsSunday } from '../../assets/data/scale-20x-events-sunday.json';
 import { Observable, of } from 'rxjs';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AddToMyScheduleDialogComponent } from '../add-to-my-schedule-dialog/add-to-my-schedule-dialog.component';
+import { ScheduleDialogComponent } from '../schedule-dialog/schedule-dialog.component';
 
 @Component({
   selector: 'app-schedule',
@@ -49,8 +49,8 @@ export class ScheduleComponent {
   }
 
   public addToMySchedule(path: string, title: string) {
-    const dialogRef = this.dialog.open(AddToMyScheduleDialogComponent, {
-      data: { title },
+    const dialogRef = this.dialog.open(ScheduleDialogComponent, {
+      data: { action: 'add', title },
     });
 
     dialogRef.afterClosed().subscribe(res => {
